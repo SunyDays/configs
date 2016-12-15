@@ -40,6 +40,7 @@
 (add-hook 'find-file-hook 'linum-mode)
 (add-hook 'find-file-hook 'whitespace-mode)
 (add-hook 'find-file-hook 'cscope-minor-mode)
+
 (menu-bar-mode -1)
 (show-paren-mode 1)
 (scroll-bar-mode -1)
