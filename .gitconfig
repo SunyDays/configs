@@ -6,3 +6,6 @@
   df = diff
   pl = pull
   ph = push
+[user]
+	email = sunnyddayss@gmail.com
+	name = SunyDays

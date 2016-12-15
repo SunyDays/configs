@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -n "$1" ]; then
+if [ -z "$1" ]; then
     echo "[ERROR]: commit message needed"
     exit 1
 fi
