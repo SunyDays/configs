@@ -11,7 +11,7 @@
  '(initial-buffer-choice (quote eshell))
  '(package-selected-packages
    (quote
-    (powerline highlight-symbol highlight-current-line xcscope)))
+    (org powerline highlight-symbol highlight-current-line xcscope)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -73,3 +73,9 @@
 
 (add-hook 'window-setup-hook 'toggle-frame-fullscreen t)
 (powerline-default-theme)
+
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-cb" 'iswitchb)
+(setq org-log-done t)
