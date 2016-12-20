@@ -21,6 +21,8 @@
  '(cursor ((t (:background "gray20"))))
  '(region ((t (:background "gray20")))))
 
+(set-face-attribute 'default nil :height 110)
+
 (require 'package)
 (add-to-list
  'package-archives
@@ -60,7 +62,7 @@
 (setq password-cache-expiry 120)
 
 (require 'whitespace)
-(setq whitespace-style '(face empty lines-tail trailing))
+(setq whitespace-style '(face empty trailing))
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (setq c-default-style "k&r"
