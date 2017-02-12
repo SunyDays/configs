@@ -38,10 +38,12 @@ end
 
 awful.util.spawn_with_shell("terminator -e htop")
 awful.util.spawn_with_shell("terminator -e alsamixer")
+-- awful.util.spawn_with_shell("terminator -e telegram-cli")
+awful.util.spawn_with_shell("terminator -e 'telegram-cli -k /etc/telegram-cli/server.pub -N'")
 awful.util.spawn_with_shell("terminator")
+-- awful.util.spawn_with_shell("terminator -e uncl") -- hide cursor
 awful.util.spawn_with_shell("emacs")
 awful.util.spawn_with_shell("firefox")
-awful.util.spawn_with_shell("telegram-desktop")
 awful.util.spawn_with_shell("zathura")
 
 -- {{{ Variable definitions
@@ -50,7 +52,7 @@ beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "terminator"
-editor = "emacsclient -c --socket-name /tmp/emacs1000/server"
+editor = "emacs"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -88,7 +90,7 @@ end
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-     names = { "messanger", "browser", "term", "editor", "reader", 6, 7, 8, 9 }
+     names = { "browser", "term", "editor", "reader", "media", 6, 7, 8, "messengers" }
 }
 for s = 1, screen.count() do
     tags[s] = awful.tag(tags.names, s, layouts[10])
@@ -97,17 +99,22 @@ end
 
 -- {{{ Menu
 -- Create a laucher widget and a main menu
-myawesomemenu = {
-   { "edit config", editor .. " " .. awesome.conffile },
-   { "restart", awesome.restart },
-   { "quit", awesome.quit }
-}
+-- myawesomemenu = {
+--    { "edit config", editor .. " " .. awesome.conffile },
+--    { "restart", awesome.restart },
+--    { "quit", awesome.quit }
+-- }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "terminal", terminal },
-				    { "emacs", editor}
-                                  }
-                        })
+-- mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+-- 				    { "emacs", editor}
+--                                   }
+-- 		       })
+
+mymainmenu = awful.menu({ items =
+			     {
+				{ "edit config", editor .. " " .. awesome.conffile },
+				{ "restart", awesome.restart }
+}})
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
@@ -292,12 +299,12 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
+    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen.index]:run() end),
 
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run({ prompt = "Run Lua code: " },
-                  mypromptbox[mouse.screen].widget,
+                  mypromptbox[mouse.screen.index].widget,
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
               end),
@@ -394,16 +401,31 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons } },
 
-      { rule = { class = "TelegramDesktop" },
-            properties = { tag = tags[1][1] } },
       { rule = { class = "Firefox" },
-            properties = { tag = tags[1][2] } },
+	properties = { tag = tags[1][1] } },
+
       { rule = { class = "Terminator" },
-            properties = { tag = tags[1][3] } },
+	properties = { tag = tags[1][2], switchtotag = true } },
+
       { rule = { class = "Emacs" },
-            properties = { tag = tags[1][4] } },
+	properties = { tag = tags[1][3] } },
+
       { rule = { class = "Zathura" },
+      	properties = { tag = tags[1][4] } },
+
+      { rule = { class = "Vlc" },
       	properties = { tag = tags[1][5] } },
+      { rule = { name = "Popcorn Time CE" },
+      	properties = { tag = tags[1][5] } },
+      { rule = { class = "Gpicview" },
+      	properties = { tag = tags[1][5] } },
+      { rule = { class = "Gimp" },
+      	properties = { tag = tags[1][5] } },
+
+      { rule = { class = "TelegramDesktop" },
+      	properties = { tag = tags[1][9] } },
+      { rule = { class = "Skype" },
+      	properties = { tag = tags[1][9] } },
 }
 -- }}}
 

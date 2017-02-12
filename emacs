@@ -8,10 +8,10 @@
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(custom-enabled-themes (quote (manoj-dark)))
- '(initial-buffer-choice (quote eshell))
+ '(initial-buffer-choice (quote mu4e))
  '(package-selected-packages
    (quote
-    (org powerline highlight-symbol highlight-current-line xcscope)))
+    (nasm-mode lua-mode org powerline highlight-symbol highlight-current-line xcscope)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -38,16 +38,19 @@
 (require 'highlight-current-line)
 (set-face-background 'highlight-current-line-face "gray10")
 
+(require 'xcscope)
+
 (add-hook 'find-file-hook 'highlight-current-line-minor-mode)
 (add-hook 'find-file-hook 'linum-mode)
 (add-hook 'find-file-hook 'whitespace-mode)
 (add-hook 'find-file-hook 'cscope-minor-mode)
+(add-hook 'find-file-hook 'cscope-minor-mode)
+
+(add-to-list 'auto-mode-alist '("\\.\\(asm\\|s\\)$" . nasm-mode))
 
 (menu-bar-mode -1)
 (show-paren-mode 1)
 (scroll-bar-mode -1)
-
-(require 'xcscope)
 
 (require 'highlight-symbol)
 (global-set-key [(control f3)] 'highlight-symbol)
@@ -79,5 +82,67 @@
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-cb" 'iswitchb)
+(global-set-key "\C-cb" 'org-iswitchb)
 (setq org-log-done t)
+
+;; mail settings
+
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
+(require 'mu4e)
+(require 'org-mu4e)
+(require 'mu4e-maildirs-extension)
+(mu4e-maildirs-extension)
+
+(setq mail-user-agent 'mu4e-user-agent)
+(add-hook 'message-send-hook 'mml-secure-message-sign-pgpmime)
+
+(setq mu4e-maildir "~/Documents/mail/gmail"
+      mu4e-drafts-folder "/[Gmail].Drafts"
+      mu4e-sent-folder   "/[Gmail].Sent Mail"
+      mu4e-trash-folder  "/[Gmail].Trash")
+
+(setq mu4e-maildir-shortcuts
+    '( ("/INBOX"               . ?i)
+       ("/[Gmail].Sent Mail"   . ?s)
+       ("/[Gmail].Trash"       . ?t)
+       ("/[Gmail].All Mail"    . ?a)
+       ("/[Gmail].Drafts"      . ?d)
+
+       ("/Eudyptula Challenge" . ?e)
+       ("/github"              . ?g)
+       ("/Ioch"                . ?c)
+       ("/Mama"                . ?m)
+       ("/Mosigra"             . ?o)
+       ("/Rocketbank"          . ?r)
+       ("/tikets"              . ?k)
+       ("/university"          . ?u)
+       ("/Weekend_hike"        . ?w)
+       ))
+
+;; allow for updating mail using 'U' in the main view:
+(setq mu4e-get-mail-command "offlineimap"
+      mu4e-update-interval 300
+      mu4e-html2text-command "html2text"
+      mu4e-sent-messages-behavior 'delete
+      message-kill-buffer-on-exit t
+      mu4e-attachment-dir "~/Downloads"
+      mu4e-view-show-addresses 't)
+
+;; something about ourselves
+(setq user-mail-address "sunnyddayss@gmail.com"
+      user-full-name  "SunyDays")
+
+(require 'smtpmail)
+(setq message-send-mail-function 'smtpmail-send-it
+      starttls-use-gnutls t
+      smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
+      ;; smtpmail-auth-credentials
+      ;; '(("smtp.gmail.com" 587 "sunnyddayss@gmail.com" "fbxfnpahfqnpgrzh"))
+      smtp-auth-credentials
+      (expand-file-name "~/.authinfo.gpg")
+      smtpmail-default-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-service 587
+
+      smtpmail-queue-mail nil
+      smtpmail-queue-dir "~/Documents/mail/gmail/queue/cur")
