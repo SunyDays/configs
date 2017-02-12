@@ -15,7 +15,7 @@ cp ./authinfo.gpg ~/.authinfo.gpg
 sudo cp ./pacman.conf /etc/
 
 echo restore packages
-sudo pacman -S - < packages.list
+sudo pacman -S $(cat packages.list)
 
 echo resotre pacman database
 cp pacman_database.tar.bz2 /
