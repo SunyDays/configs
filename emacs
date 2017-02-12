@@ -136,8 +136,6 @@
 (setq message-send-mail-function 'smtpmail-send-it
       starttls-use-gnutls t
       smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
-      ;; smtpmail-auth-credentials
-      ;; '(("smtp.gmail.com" 587 "sunnyddayss@gmail.com" "fbxfnpahfqnpgrzh"))
       smtp-auth-credentials
       (expand-file-name "~/.authinfo.gpg")
       smtpmail-default-smtp-server "smtp.gmail.com"
