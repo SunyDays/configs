@@ -12,6 +12,10 @@ cp ./zathurarc ~/.config/zathura/
 cp ./offlineimaprc ~/.offlineimaprc
 cp ./offlineimap.py ~/.offlineimap.py
 cp ./authinfo.gpg ~/.authinfo.gpg
+sudo cp ./pacman.conf /etc/
+
+echo restore packages
+sudo pacman -S - < packages.list
 
 echo resotre pacman database
 cp pacman_database.tar.bz2 /

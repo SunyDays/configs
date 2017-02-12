@@ -15,6 +15,10 @@ cp ~/.config/zathura/zathurarc ./
 cp ~/.offlineimaprc ./offlineimaprc
 cp ~/.offlineimap.py ./offlineimap.py
 cp ~/.authinfo.gpg ./authinfo.gpg
+cp /etc/pacman.conf ./
+
+echo backup list of backages
+pacman -Qqe > packages.list
 
 echo backup pacman database
 tar -cjf pacman_database.tar.bz2 /var/lib/pacman/local
