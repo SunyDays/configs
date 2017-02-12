@@ -9,10 +9,14 @@ cp ./gitconfig ~/gitconfig
 cp ./awesome_conf.lua ~/.config/awesome/rc.lua
 cp ./terminator.config ~/.config/terminator/config
 cp ./zathurarc ~/.config/zathura/
+
 cp ./offlineimaprc ~/.offlineimaprc
 cp ./offlineimap.py ~/.offlineimap.py
 cp ./authinfo.gpg ~/.authinfo.gpg
+
 sudo cp ./pacman.conf /etc/
+sudo cp ./configs_backup.* /etc/systemd/system/
+sudo cp ./netctl@SunyDays.service /etc/systemd/system/
 
 echo restore packages
 sudo pacman -S $(cat packages.list)

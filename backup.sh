@@ -12,10 +12,18 @@ cp ~/.gitconfig ./gitconfig
 cp ~/.config/awesome/rc.lua ./awesome_conf.lua
 cp ~/.config/terminator/config ./terminator.config
 cp ~/.config/zathura/zathurarc ./
+
 cp ~/.offlineimaprc ./offlineimaprc
 cp ~/.offlineimap.py ./offlineimap.py
 cp ~/.authinfo.gpg ./authinfo.gpg
+
 cp /etc/pacman.conf ./
+cp /etc/systemd/system/configs_backup.* ./
+cp /etc/systemd/system/netctl@SunyDays.service ./
+
+cp /etc/netctl/SunyDays ./
+gpg -se SunyDays
+rm SunyDays
 
 echo backup list of backages
 pacman -Qqe > packages.list
