@@ -1,0 +1,24 @@
+[general]
+accounts = Gmail
+maxsyncaccounts = 3
+pythonfile = ~/.offlineimap.py
+
+[Account Gmail]
+localrepository = Local
+remoterepository = Remote
+
+[Repository Local]
+type = Maildir
+localfolders = /home/sunydays/Documents/mail/gmail
+
+[Repository Remote]
+type = IMAP
+remotehost = imap.gmail.com
+remoteuser = sunnyddayss@gmail.com
+remotepasseval = get_password_emacs("smtp.gmail.com", "sunnyddayss@gmail.com", "993")
+ssl = yes
+maxconnections = 1
+realdelete = no
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+dynamic_folderfilter = True
+folderfilter = lambda folder: folder not in ['[Gmail]/Spam', '[Gmail]/Important', '[Gmail]/Starred', 'queue']
