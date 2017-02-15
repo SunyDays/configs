@@ -2,7 +2,7 @@
 
 git pull
 
-echo restore configs
+echo '> RESTORE CONFIGS'
 cp ./bashrc ~/.bashrc
 cp ./emacs ~/.emacs
 cp ./gitconfig ~/gitconfig
@@ -18,10 +18,10 @@ sudo cp ./pacman.conf /etc/
 sudo cp ./configs_backup.* /etc/systemd/system/
 sudo cp ./netctl@SunyDays.service /etc/systemd/system/
 
-echo restore packages
+echo '> RESTORE PACKAGES'
 sudo pacman -S $(cat packages.list)
 
-echo resotre pacman database
+echo '> RESOTRE PACMAN DATABASE'
 cp pacman_database.tar.bz2 /
 cd /
 tar -xjvf pacman_database.tar.bz2

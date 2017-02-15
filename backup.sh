@@ -5,7 +5,7 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-echo backup configs
+echo '> BACKUP CONFIGS'
 cp ~/.bashrc ./bashrc
 cp ~/.emacs ./emacs
 cp ~/.gitconfig ./gitconfig
@@ -21,14 +21,14 @@ cp /etc/pacman.conf ./
 cp /etc/systemd/system/configs_backup.* ./
 cp /etc/systemd/system/netctl@SunyDays.service ./
 
-cp /etc/netctl/SunyDays ./
-gpg -se SunyDays
-rm SunyDays
+# cp /etc/netctl/SunyDays ./
+# gpg -se SunyDays
+# rm SunyDays
 
-echo backup list of backages
+echo '> BACKUP LIST OF PACKAGES'
 pacman -Qqe > packages.list
 
-echo backup pacman database
+echo '> BACKUP PACMAN DATABASE'
 tar -cjf pacman_database.tar.bz2 /var/lib/pacman/local
 
 git add .
