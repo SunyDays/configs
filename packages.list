@@ -99,6 +99,7 @@ qemu-arch-extra
 qt4
 radare2
 reiserfsprogs
+rsync
 s-nail
 screenfetch
 sed
