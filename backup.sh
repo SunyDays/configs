@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if [ -z "$1" ]; then
-    echo "[ERROR]: commit message needed"
-    exit 1
-fi
+# if [ -z "$1" ]; then
+#     echo "[ERROR]: commit message needed"
+#     exit 1
+# fi
 
 echo '> BACKUP CONFIGS'
 cp ~/.bashrc ./bashrc
@@ -31,8 +31,8 @@ pacman -Qqe > packages.list
 echo '> BACKUP PACMAN DATABASE'
 tar -cjf pacman_database.tar.bz2 /var/lib/pacman/local
 
-git add .
-git ct -m "$1"
-git push
+# git add .
+# git ct -m "$1"
+# git push
 
 echo "[DONE]"
