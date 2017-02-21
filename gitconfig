@@ -1,3 +1,6 @@
+[user]
+	email = sunnyddayss@gmail.com
+	name = SunyDays
 [alias]
   co = checkout
   ct = commit
@@ -6,6 +9,5 @@
   df = diff
   pl = pull
   ph = push
-[user]
-	email = sunnyddayss@gmail.com
-	name = SunyDays
+[core]
+	abbrev = 12
