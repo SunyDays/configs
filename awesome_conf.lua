@@ -40,6 +40,7 @@ awful.util.spawn_with_shell("terminator -e htop")
 awful.util.spawn_with_shell("terminator -e alsamixer")
 -- awful.util.spawn_with_shell("terminator -e telegram-cli")
 awful.util.spawn_with_shell("terminator -e 'telegram-cli -k /etc/telegram-cli/server.pub -N'")
+awful.util.spawn_with_shell("terminator -e 'dmesg -w'")
 awful.util.spawn_with_shell("terminator")
 -- awful.util.spawn_with_shell("terminator -e uncl") -- hide cursor
 awful.util.spawn_with_shell("emacs")
@@ -90,7 +91,7 @@ end
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-     names = { "browser", "term", "editor", "reader", "media", 6, 7, 8, "messengers" }
+     names = { "browser", "term", "emacs", "reader", "media", 6, 7, 8, "messengers" }
 }
 for s = 1, screen.count() do
     tags[s] = awful.tag(tags.names, s, layouts[10])
