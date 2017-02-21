@@ -94,7 +94,7 @@
 (mu4e-maildirs-extension)
 
 (setq mail-user-agent 'mu4e-user-agent)
-(add-hook 'message-send-hook 'mml-secure-message-sign-pgpmime)
+;; (add-hook 'message-send-hook 'mml-secure-message-sign-pgpmime)
 
 (setq mu4e-maildir "~/Documents/mail/gmail"
       mu4e-drafts-folder "/[Gmail].Drafts"
@@ -109,6 +109,8 @@
        ("/[Gmail].Drafts"      . ?d)
 
        ("/Eudyptula Challenge" . ?e)
+       ("/linux_c_programming" . ?p)
+       ("/linux_modules"       . ?d)
        ("/github"              . ?g)
        ("/Ioch"                . ?c)
        ("/Mama"                . ?m)
