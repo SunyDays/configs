@@ -65,7 +65,9 @@
 (setq password-cache-expiry 120)
 
 (require 'whitespace)
-(setq whitespace-style '(face empty trailing))
+(setq whitespace-style '(face empty trailing lines
+			      space-before-tab space-after-tab)
+      whitespace-line-column 80)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (setq c-default-style "k&r"
