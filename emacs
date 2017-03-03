@@ -58,11 +58,14 @@
 (global-set-key [(shift f3)] 'highlight-symbol-prev)
 (global-set-key [(meta f3)] 'highlight-symbol-query-replace)
 
-(require 'em-tramp)
-(setq eshell-prefer-lisp-functions t)
-(setq eshell-prefer-lisp-variables t)
-(setq password-cache t)
-(setq password-cache-expiry 120)
+;; (require 'em-tramp)
+;; (setq eshell-prefer-lisp-functions t)
+;; (setq eshell-prefer-lisp-variables t)
+;; (setq password-cache t)
+;; (setq password-cache-expiry 120)
+
+;; infinite ansi-term buffer size
+(setq term-buffer-maximum-size 0)
 
 (require 'whitespace)
 (setq whitespace-style '(face empty trailing lines
