@@ -74,7 +74,8 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (setq c-default-style "k&r"
-      c-basic-offset 8)
+      c-basic-offset 8
+      tab-width 8)
 
 (global-set-key "\C-x\C-m" 'compile)
 
