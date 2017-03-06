@@ -10,6 +10,7 @@ alias ls='ls --color=auto'
 alias ll='ls -lh --color=auto'
 alias la='ls -lah --color=auto'
 alias diff='diff --color=auto'
+alias g='git'
 unalias emacs
 
 alias uncl='unclutter -idle 1 -root &'
