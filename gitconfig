@@ -1,13 +1,17 @@
 [user]
 	email = sunnyddayss@gmail.com
-	name = SunyDays
+	name = Roman Lakeev
 [alias]
   co = checkout
-  ct = commit
+  cm = commit
   st = status
   br = branch
   df = diff
   pl = pull
   ph = push
+  rs = reset
+  l = log
+  a = add
+  fp = format-patch
 [core]
 	abbrev = 12
