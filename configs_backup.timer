@@ -1,9 +1,0 @@
-[Unit]
-Description=timer for configs backup script
-
-[Timer]
-OnBootSec=5m
-OnUnitActiveSec=1d
-
-[Install]
-WantedBy=timers.target

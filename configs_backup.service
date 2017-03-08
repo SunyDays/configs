@@ -1,6 +1,0 @@
-[Unit]
-Description=backup configs
-
-[Service]
-Type=simple
-ExecStart=/bin/bash /home/sunydays/Documents/configs_backup/backup.sh "auto backup"
