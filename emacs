@@ -90,6 +90,10 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
 (setq org-log-done t)
+(setq org-todo-keywords
+      '((sequence "TODO" "INPROGRESS" "PAUSED" "|" "DONE" "CANCELED")))
+(setq org-agenda-files
+   '("~/Documents/org/home.org" "~/Documents/org/habbits.org"))
 
 ;; mail settings
 
