@@ -18,7 +18,7 @@ cp ~/.offlineimap.py ./offlineimap.py
 cp ~/.authinfo.gpg ./authinfo.gpg
 
 cp /etc/pacman.conf ./
-cp /etc/systemd/system/configs_backup.* ./
+# cp /etc/systemd/system/configs_backup.* ./
 cp /etc/systemd/system/netctl@SunyDays.service ./
 
 # cp /etc/netctl/SunyDays ./
