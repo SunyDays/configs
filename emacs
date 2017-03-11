@@ -90,8 +90,10 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
 (setq org-log-done t)
+(setq org-log-into-drawer t)
 (setq org-todo-keywords
-      '((sequence "TODO" "INPROGRESS" "PAUSED" "|" "DONE" "CANCELED")))
+      '((sequence "TODO" "INPROGRESS(i!)" "PAUSED(p!)" "|"
+		  "DONE(d!)" "CANCELED(c!)")))
 (setq org-agenda-files
    '("~/Documents/org/home.org" "~/Documents/org/habbits.org"))
 
