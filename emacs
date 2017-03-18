@@ -150,11 +150,9 @@
 (setq message-send-mail-function 'smtpmail-send-it
       starttls-use-gnutls t
       smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
-      smtp-auth-credentials
-      (expand-file-name "~/.authinfo.gpg")
+      smtp-auth-credentials (expand-file-name "~/.authinfo.gpg")
       smtpmail-default-smtp-server "smtp.gmail.com"
       smtpmail-smtp-server "smtp.gmail.com"
       smtpmail-smtp-service 587
-
       smtpmail-queue-mail nil
       smtpmail-queue-dir "~/Documents/mail/gmail/queue/cur")
