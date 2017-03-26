@@ -93,7 +93,7 @@
 (setq org-log-into-drawer t)
 (setq org-todo-keywords
       '((sequence "TODO" "INPROGRESS(i!)" "PAUSED(p!)" "|"
-		  "DONE(d!)" "CANCELED(c!)")))
+		  "DONE(d!)" "FAILED(f!)" "CANCELED(c!)")))
 (setq org-agenda-files
    '("~/Documents/org/home.org" "~/Documents/org/habbits.org"))
 
