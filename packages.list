@@ -1,5 +1,7 @@
 ack
 acpi
+acpi_call
+acpid
 aic94xx-firmware
 alsa-utils
 autoconf
@@ -49,6 +51,7 @@ grep
 gzip
 htop
 ifplugd
+ifuse
 inetutils
 intel-ucode
 iotop
@@ -59,11 +62,14 @@ jfsutils
 lemonbuddy-git
 less
 libcgroup
+libva-intel-driver
+libva-mesa-driver
 licenses
 linux
 linux-docs
 linux-headers
 logrotate
+lshw
 ltrace
 lvm2
 m4
@@ -71,6 +77,8 @@ make
 man-db
 man-pages
 mdadm
+mesa-demos
+mesa-vdpau
 minicom
 mtools
 nano
@@ -99,6 +107,7 @@ qemu
 qemu-arch-extra
 qt4
 radare2
+radeontool
 redshift
 reiserfsprogs
 rsync
@@ -147,6 +156,7 @@ unzip
 usbutils
 util-linux
 valgrind
+vdpauinfo
 vi
 vicious
 vlc
@@ -157,12 +167,16 @@ wpa_actiond
 xapian-core
 xclip
 xdelta3
+xf86-video-ati
+xf86-video-fbdev
 xf86-video-intel
+xf86-video-vesa
 xfsprogs
 xmlto
 xorg-server
 xorg-xbacklight
 xorg-xinit
+xorg-xrandr
 zathura
 zathura-cb
 zathura-djvu
