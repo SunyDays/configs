@@ -13,5 +13,6 @@
   l = log
   a = add
   fp = format-patch
+  c = clone
 [core]
 	abbrev = 12
