@@ -88,6 +88,7 @@ ntfs-3g
 ntp
 offlineimap
 openssh
+package-query-git
 pacman
 pamixer
 pandoc
@@ -95,6 +96,7 @@ patch
 pciutils
 pcmanfm
 pcmciautils
+pdfgrep
 perl
 pkg-config
 pnmixer
@@ -177,6 +179,7 @@ xorg-server
 xorg-xbacklight
 xorg-xinit
 xorg-xrandr
+yaourt
 zathura
 zathura-cb
 zathura-djvu
