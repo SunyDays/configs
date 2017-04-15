@@ -2,8 +2,10 @@ ack
 acpi
 acpi_call
 acpid
+adbfs-rootless-git
 aic94xx-firmware
 alsa-utils
+android-sdk-platform-tools
 autoconf
 automake
 awesome
@@ -81,6 +83,7 @@ mesa-demos
 mesa-vdpau
 minicom
 mtools
+mtpfs
 nano
 nasm
 netctl
@@ -145,6 +148,7 @@ texlive-publishers
 texlive-science
 tor
 transmission-cli
+transmission-gtk
 tree
 truecrypt
 ttf-inconsolata
@@ -175,6 +179,7 @@ xf86-video-intel
 xf86-video-vesa
 xfsprogs
 xmlto
+xorg-fonts-cyrillic
 xorg-server
 xorg-xbacklight
 xorg-xinit
