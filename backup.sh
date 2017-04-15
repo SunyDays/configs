@@ -20,6 +20,9 @@ cp ~/.authinfo.gpg ./authinfo.gpg
 cp /etc/pacman.conf ./
 cp /etc/systemd/system/netctl@SunyDays.service ./
 
+cp /etc/mkinitcpio.conf ./
+cp -rf /etc/mkinitcpio.d ./
+
 # cp /etc/netctl/SunyDays ./
 # gpg -se SunyDays
 # rm SunyDays

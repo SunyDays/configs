@@ -18,6 +18,9 @@ sudo cp ./pacman.conf /etc/
 sudo cp ./configs_backup.* /etc/systemd/system/
 sudo cp ./netctl@SunyDays.service /etc/systemd/system/
 
+cp mkinitcpio.conf /etc
+cp -rf mkinitcpio.d /etc
+
 echo '> RESTORE PACKAGES'
 sudo pacman -S $(cat packages.list)
 
