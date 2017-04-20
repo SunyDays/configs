@@ -23,6 +23,8 @@ cp /etc/systemd/system/netctl@SunyDays.service ./
 cp /etc/mkinitcpio.conf ./
 cp -rf /etc/mkinitcpio.d ./
 
+cp /etc/X11/xorg.conf.d/20-intel.conf ./
+
 # cp /etc/netctl/SunyDays ./
 # gpg -se SunyDays
 # rm SunyDays
