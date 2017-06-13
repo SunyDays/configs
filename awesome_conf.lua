@@ -38,13 +38,10 @@ end
 
 awful.util.spawn_with_shell("terminator -e htop")
 awful.util.spawn_with_shell("terminator -e alsamixer")
--- awful.util.spawn_with_shell("terminator -e telegram-cli")
-awful.util.spawn_with_shell("terminator -e 'telegram-cli -k /etc/telegram-cli/server.pub -N'")
 awful.util.spawn_with_shell("terminator -e 'dmesg -w'")
 awful.util.spawn_with_shell("terminator")
--- awful.util.spawn_with_shell("terminator -e uncl") -- hide cursor
 awful.util.spawn_with_shell("emacs")
-awful.util.spawn_with_shell("firefox")
+awful.util.spawn_with_shell("chromium")
 awful.util.spawn_with_shell("zathura")
 
 -- {{{ Variable definitions
@@ -389,7 +386,7 @@ awful.rules.rules = {
 		     keys = clientkeys,
 		     buttons = clientbuttons } },
 
-      { rule = { class = "Firefox" },
+      { rule = { class = "Chromium" },
 	properties = { tag = tags[1][1] } },
 
       { rule = { class = "Terminator" },
