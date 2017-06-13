@@ -6,6 +6,9 @@ adbfs-rootless-git
 aic94xx-firmware
 alsa-utils
 android-sdk-platform-tools
+arm-none-eabi-gcc
+arm-none-eabi-gdb
+arm-none-eabi-newlib
 autoconf
 automake
 awesome
@@ -15,6 +18,7 @@ binutils
 bison
 boost
 bzip2
+chromium
 clang
 cmake
 cmus
@@ -36,7 +40,6 @@ fbreader
 file
 filesystem
 findutils
-firefox
 flex
 gawk
 gcc
@@ -90,7 +93,9 @@ netctl
 ntfs-3g
 ntp
 offlineimap
+openocd
 openssh
+p7zip
 package-query-git
 pacman
 pamixer
@@ -111,6 +116,7 @@ python-sphinx
 qemu
 qemu-arch-extra
 qt4
+qutebrowser
 radeontool
 redshift
 reiserfsprogs
@@ -145,11 +151,14 @@ texlive-plainextra
 texlive-pstricks
 texlive-publishers
 texlive-science
+tftp-hpa
+tig
 tor
 transmission-cli
 transmission-gtk
 tree
 truecrypt
+ttf-hack
 ttf-inconsolata
 ttf-inconsolata-g
 ttf-symbola
@@ -162,6 +171,7 @@ usbutils
 util-linux
 valgrind
 vdpauinfo
+veracrypt
 vi
 vicious
 vlc
