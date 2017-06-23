@@ -42,11 +42,8 @@
 
 (add-hook 'find-file-hook 'highlight-current-line-minor-mode)
 (add-hook 'find-file-hook 'linum-mode)
-(add-hook 'find-file-hook 'whitespace-mode)
-(add-hook 'find-file-hook 'cscope-minor-mode)
-(add-hook 'find-file-hook 'cscope-minor-mode)
-
-(add-to-list 'auto-mode-alist '("\\.\\(asm\\|s\\)$" . nasm-mode))
+(add-hook 'prog-mode-hook 'whitespace-mode)
+(add-hook 'prog-mode-hook 'cscope-minor-mode)
 
 (menu-bar-mode -1)
 (show-paren-mode 1)
@@ -57,12 +54,6 @@
 (global-set-key [f3] 'highlight-symbol-next)
 (global-set-key [(shift f3)] 'highlight-symbol-prev)
 (global-set-key [(meta f3)] 'highlight-symbol-query-replace)
-
-;; (require 'em-tramp)
-;; (setq eshell-prefer-lisp-functions t)
-;; (setq eshell-prefer-lisp-variables t)
-;; (setq password-cache t)
-;; (setq password-cache-expiry 120)
 
 ;; infinite ansi-term buffer size
 (setq term-buffer-maximum-size 0)
@@ -92,7 +83,7 @@
 (setq org-log-done t)
 (setq org-log-into-drawer t)
 (setq org-todo-keywords
-      '((sequence "TODO" "INPROGRESS(i!)" "PAUSED(p!)" "|"
+      '((sequence "TODO(t)" "MAYBE(m)" "INPROGRESS(i!)" "PAUSED(p!)" "|"
 		  "DONE(d!)" "FAILED(f!)" "CANCELED(c!)")))
 (setq org-agenda-files
    '("~/Documents/org/home.org" "~/Documents/org/habbits.org"))
