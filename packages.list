@@ -74,6 +74,7 @@ linux
 linux-docs
 linux-headers
 logrotate
+lrzsz
 lshw
 ltrace
 lvm2
@@ -116,7 +117,6 @@ python-sphinx
 qemu
 qemu-arch-extra
 qt4
-qutebrowser
 radeontool
 redshift
 reiserfsprogs
