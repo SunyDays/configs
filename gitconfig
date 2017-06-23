@@ -16,3 +16,5 @@
   c = clone
 [core]
 	abbrev = 12
+[gc]
+	auto = 0
