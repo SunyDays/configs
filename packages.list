@@ -1,3 +1,5 @@
+aarch64-linux-gnu-gcc
+aarch64-linux-gnu-gdb
 ack
 acpi
 acpi_call
@@ -6,6 +8,10 @@ adbfs-rootless-git
 aic94xx-firmware
 alsa-utils
 android-sdk-platform-tools
+arm-linux-gnueabihf-binutils
+arm-linux-gnueabihf-gcc
+arm-linux-gnueabihf-glibc
+arm-linux-gnueabihf-linux-api-headers
 arm-none-eabi-gcc
 arm-none-eabi-gdb
 arm-none-eabi-newlib
@@ -25,7 +31,6 @@ cmus
 coreutils
 cryptsetup
 cscope
-deepin-screenshot
 device-mapper
 dhcpcd
 diffstat
@@ -100,7 +105,6 @@ p7zip
 package-query-git
 pacman
 pamixer
-pandoc
 patch
 pciutils
 pcmanfm
@@ -123,6 +127,7 @@ reiserfsprogs
 rsync
 s-nail
 screenfetch
+scrot
 sed
 shadow
 skype
@@ -140,14 +145,11 @@ texlive-core
 texlive-fontsextra
 texlive-formatsextra
 texlive-games
-texlive-genericextra
-texlive-htmlxml
 texlive-humanities
 texlive-langcyrillic
 texlive-latexextra
 texlive-music
 texlive-pictures
-texlive-plainextra
 texlive-pstricks
 texlive-publishers
 texlive-science
