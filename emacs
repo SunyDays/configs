@@ -45,6 +45,12 @@
 (add-hook 'prog-mode-hook 'whitespace-mode)
 (add-hook 'prog-mode-hook 'cscope-minor-mode)
 
+;; change comment symbol for asm-mode
+(setq asm-mode-hook
+      (lambda () (progn (setq asm-comment-char ?@)
+			(setq comment-start "@ ")
+			(setq comment-add 0))))
+
 (menu-bar-mode -1)
 (show-paren-mode 1)
 (scroll-bar-mode -1)
@@ -76,6 +82,10 @@
 (add-hook 'window-setup-hook 'toggle-frame-fullscreen t)
 (powerline-default-theme)
 
+;;
+;; org settings
+;;
+
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
@@ -88,7 +98,9 @@
 (setq org-agenda-files
    '("~/Documents/org/home.org" "~/Documents/org/habbits.org"))
 
+;;
 ;; mail settings
+;;
 
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 (require 'mu4e)
