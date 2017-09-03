@@ -37,8 +37,4 @@ pacman -Qqe > packages.list
 echo '> BACKUP PACMAN DATABASE'
 tar -cjf pacman_database.tar.bz2 /var/lib/pacman/local
 
-# git add .
-# git ct -m "$1"
-# git push
-
 echo '> DONE'
