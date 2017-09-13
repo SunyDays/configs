@@ -11,7 +11,7 @@
  '(initial-buffer-choice (quote mu4e))
  '(package-selected-packages
    (quote
-    (nasm-mode lua-mode org powerline highlight-symbol highlight-current-line xcscope)))
+    (magit nasm-mode lua-mode org powerline highlight-symbol highlight-current-line xcscope)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -75,6 +75,9 @@
       tab-width 8)
 
 (global-set-key "\C-x\C-m" 'compile)
+
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
 
 (set-fringe-mode '(nil . 0))
 (set-face-background 'fringe "black" nil)
