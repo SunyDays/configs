@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# if [ -z "$1" ]; then
-#     echo "[ERROR]: commit message needed"
-#     exit 1
-# fi
-
 echo '> BACKUP CONFIGS'
 cp ~/.bashrc ./bashrc
 cp ~/.emacs ./emacs
