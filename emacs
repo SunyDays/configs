@@ -11,7 +11,8 @@
  '(initial-buffer-choice (quote mu4e))
  '(package-selected-packages
    (quote
-    (magit nasm-mode lua-mode org powerline highlight-symbol highlight-current-line xcscope)))
+    (highlight-indent-guides magit nasm-mode lua-mode org powerline
+			     highlight-symbol highlight-current-line xcscope)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -19,7 +20,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cursor ((t (:background "gray20"))))
- '(region ((t (:background "gray20")))))
+ '(region ((t (:background "gray20"))))
+ '(whitespace-line ((t (:background "gray20" :foreground "red")))))
 
 (set-face-attribute 'default nil :height 110)
 
@@ -42,8 +44,12 @@
 
 (add-hook 'find-file-hook 'highlight-current-line-minor-mode)
 (add-hook 'find-file-hook 'linum-mode)
+
 (add-hook 'prog-mode-hook 'whitespace-mode)
 (add-hook 'prog-mode-hook 'cscope-minor-mode)
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; change comment symbol for asm-mode
 (setq asm-mode-hook
@@ -65,10 +71,16 @@
 (setq term-buffer-maximum-size 0)
 
 (require 'whitespace)
-(setq whitespace-style '(face empty trailing lines
-			      space-before-tab space-after-tab)
-      whitespace-line-column 80)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(setq whitespace-style '(face empty trailing lines-tail
+			      space-before-tab::tab space-after-tab::tab))
+(setq whitespace-line-column 80)
+
+(require 'highlight-indent-guides)
+(setq highlight-indent-guides-method 'character)
+(setq highlight-indent-guides-auto-enabled nil)
+(set-face-background 'highlight-indent-guides-odd-face "darkgray")
+(set-face-background 'highlight-indent-guides-even-face "dimgray")
+(set-face-foreground 'highlight-indent-guides-character-face "dimgray")
 
 (setq c-default-style "k&r"
       c-basic-offset 8
