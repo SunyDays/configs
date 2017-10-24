@@ -11,8 +11,7 @@
  '(initial-buffer-choice (quote mu4e))
  '(package-selected-packages
    (quote
-    (highlight-indent-guides magit nasm-mode lua-mode org powerline
-			     highlight-symbol highlight-current-line xcscope)))
+    (markdown-mode highlight-indent-guides magit nasm-mode lua-mode org powerline highlight-symbol highlight-current-line xcscope)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -74,6 +73,8 @@
 (setq whitespace-style '(face empty trailing lines-tail
 			      space-before-tab::tab space-after-tab::tab))
 (setq whitespace-line-column 80)
+
+(setq highlight-symbol-foreground-color "white")
 
 (require 'highlight-indent-guides)
 (setq highlight-indent-guides-method 'character)
@@ -174,3 +175,29 @@
       smtpmail-smtp-service 587
       smtpmail-queue-mail nil
       smtpmail-queue-dir "~/Documents/mail/gmail/queue/cur")
+
+;; markdown
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+;; Open files and go places like we see from error messages, i e: path:line:col
+(defadvice find-file (around find-file-line-number
+                             (path &optional wildcards)
+                             activate)
+  "Turn files like file.js:14:10 into file.js and going to line 14, col 10."
+  (save-match-data
+    (let* ((match (string-match "^\\(.*?\\):\\([0-9]+\\):?\\([0-9]*\\)$" path))
+           (line-no (and match
+                         (match-string 2 path)
+                         (string-to-number (match-string 2 path))))
+           (col-no (and match
+                        (match-string 3 path)
+                        (string-to-number (match-string 3 path))))
+           (path (if match (match-string 1 path) path)))
+      ad-do-it
+      (when line-no
+        ;; goto-line is for interactive use
+        (goto-char (point-min))
+        (forward-line (1- line-no))
+        (when (> col-no 0)
+          (forward-char (1- col-no)))))))
