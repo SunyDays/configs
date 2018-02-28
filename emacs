@@ -8,10 +8,13 @@
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(custom-enabled-themes (quote (manoj-dark)))
+ '(custom-safe-themes
+   (quote
+    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
  '(initial-buffer-choice (quote mu4e))
  '(package-selected-packages
    (quote
-    (markdown-mode highlight-indent-guides magit nasm-mode lua-mode org powerline highlight-symbol highlight-current-line xcscope)))
+    (smart-mode-line nlinum markdown-mode highlight-indent-guides magit nasm-mode lua-mode org highlight-symbol highlight-current-line xcscope)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -22,7 +25,21 @@
  '(region ((t (:background "gray20"))))
  '(whitespace-line ((t (:background "gray20" :foreground "red")))))
 
-(set-face-attribute 'default nil :height 110)
+;; set font size
+(set-face-attribute 'default nil :height 100)
+;; disable italic
+(set-face-italic 'font-lock-comment-face nil)
+;; disable bold
+(mapc
+ (lambda (face)
+        (when (eq (face-attribute face :weight) 'bold)
+          (set-face-attribute face nil :weight 'normal)))
+ (face-list))
+
+(add-hook 'emacs-startup-hook
+	  (lambda ()
+	    (ansi-term "/bin/bash")
+	    ))
 
 (require 'package)
 (add-to-list
@@ -42,7 +59,7 @@
 (require 'xcscope)
 
 (add-hook 'find-file-hook 'highlight-current-line-minor-mode)
-(add-hook 'find-file-hook 'linum-mode)
+(add-hook 'find-file-hook 'nlinum-mode)
 
 (add-hook 'prog-mode-hook 'whitespace-mode)
 (add-hook 'prog-mode-hook 'cscope-minor-mode)
@@ -61,10 +78,9 @@
 (scroll-bar-mode -1)
 
 (require 'highlight-symbol)
-(global-set-key [(control f3)] 'highlight-symbol)
-(global-set-key [f3] 'highlight-symbol-next)
-(global-set-key [(shift f3)] 'highlight-symbol-prev)
-(global-set-key [(meta f3)] 'highlight-symbol-query-replace)
+(global-set-key (kbd "<C-S-h>") 'highlight-symbol)
+(global-set-key (kbd "<C-S-n>") 'highlight-symbol-next)
+(global-set-key (kbd "<C-S-p>") 'highlight-symbol-prev)
 
 ;; infinite ansi-term buffer size
 (setq term-buffer-maximum-size 0)
@@ -85,7 +101,8 @@
 
 (setq c-default-style "k&r"
       c-basic-offset 8
-      tab-width 8)
+      tab-width 8
+      indent-tabs-mode t)
 
 (global-set-key "\C-x\C-m" 'compile)
 
@@ -96,7 +113,9 @@
 (set-face-background 'fringe "black" nil)
 
 (add-hook 'window-setup-hook 'toggle-frame-fullscreen t)
-(powerline-default-theme)
+
+(setq sml/theme 'dark)
+(sml/setup)
 
 ;;
 ;; org settings
@@ -140,8 +159,7 @@
        ("/[Gmail].Drafts"      . ?d)
 
        ("/Eudyptula Challenge" . ?e)
-       ("/linux_c_programming" . ?p)
-       ("/linux_modules"       . ?d)
+       ("/my_linux_patches"    . ?p)
        ("/github"              . ?g)
        ("/Ioch"                . ?c)
        ("/Mama"                . ?m)
@@ -158,7 +176,7 @@
       mu4e-html2text-command "html2text"
       mu4e-sent-messages-behavior 'delete
       message-kill-buffer-on-exit t
-      mu4e-attachment-dir "~/Downloads"
+      mu4e-attachment-dir "~/Downloads/mail"
       mu4e-view-show-addresses 't)
 
 ;; something about ourselves
@@ -179,6 +197,7 @@
 ;; markdown
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.bin\\'" . hexl-mode))
 
 ;; Open files and go places like we see from error messages, i e: path:line:col
 (defadvice find-file (around find-file-line-number

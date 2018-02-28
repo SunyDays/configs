@@ -1,2 +1,12 @@
 set adjust-open width
 set recolor true
+
+map [normal] n scroll down
+map [normal] p scroll up
+map [normal] f scroll right
+map [normal] b scroll left
+
+map [fullscreen] n scroll down
+map [fullscreen] p scroll up
+map [fullscreen] f scroll right
+map [fullscreen] b scroll left

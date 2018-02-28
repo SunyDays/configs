@@ -1,0 +1,60 @@
+!!! main layout
+
+! turn caps_lock to control_l
+clear lock
+clear control
+keycode 66 = Control_L
+add control = Caps_Lock Control_L Control_R
+
+! make control_l mode_switch
+keycode 37 = Mode_switch Mode_switch Mode_switch
+
+!!! second layout
+
+! map arrows to pnfb keys
+keysym p = p P Up
+keysym n = n N Down
+keysym f = f F Right
+keysym b = b B Left
+
+! map home and end
+keysym e = e E KP_Home
+keysym a = a A KP_End
+
+!! map symbols for right hand
+! bottom row
+keysym m = m M exclam 1
+keycode 59 = comma less at 2
+keycode 60 = period greater numbersign 3
+keycode 61 = slash question parenright 0
+! middle row
+keysym j = j J dollar 4
+keysym k = k K percent 5
+keysym l = l L asciicircum 6
+keycode 47 = semicolon colon minus underscore
+keycode 48 = apostrophe quotedbl equal plus
+! upper row
+keysym u = u U ampersand 7
+keysym i = i I asterisk 8
+keysym o = o O parenleft 9
+
+! map tilde to q key
+keysym q = q Q asciitilde grave
+
+! swap braces
+keycode 34 = braceleft bracketleft
+keycode 35 = braceright bracketright
+
+! map f keys to numbers row
+keycode 10 = 1 exclam F1
+keycode 11 = 2 at F2
+keycode 12 = 3 numbersign F3
+keycode 13 = 4 dollar F4
+keycode 14 = 5 percent F5
+keycode 15 = 6 asciicircum F6
+keycode 16 = 7 ampersand F7
+keycode 17 = 8 asterisk F8
+keycode 18 = 9 parenleft F9
+keycode 19 = 0 parenright F10
+keycode 20 = minus underscore F11
+keycode 21 = equal plus F12
