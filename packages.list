@@ -26,9 +26,12 @@ boost
 bzip2
 chromium
 clang
+cloc
 cmake
 cmus
 coreutils
+cowfortune
+cowsay
 cryptsetup
 cscope
 device-mapper
@@ -60,6 +63,7 @@ gptfdisk
 grep
 gzip
 htop
+i2c-tools
 ifplugd
 ifuse
 inetutils
@@ -117,7 +121,6 @@ procps-ng
 psmisc
 pulseaudio
 python-html2text
-python-sphinx
 qemu
 qemu-arch-extra
 qt4
@@ -135,6 +138,7 @@ strace
 sudo
 sysfsutils
 systemd-sysvcompat
+tamsyn-font
 tar
 telegram-cli-git
 telegram-desktop-bin
@@ -160,9 +164,7 @@ transmission-cli
 transmission-gtk
 tree
 truecrypt
-ttf-hack
-ttf-inconsolata
-ttf-inconsolata-g
+ttf-croscore
 ttf-symbola
 tty-clock
 tumbler
@@ -193,10 +195,12 @@ xmlto
 xorg-fonts-cyrillic
 xorg-server
 xorg-xbacklight
+xorg-xev
 xorg-xinit
+xorg-xinput
 xorg-xrandr
+xulrunner
 yaourt
 zathura
-zathura-cb
 zathura-djvu
-zathura-pdf-poppler
+zathura-pdf-mupdf
