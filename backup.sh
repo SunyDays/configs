@@ -11,6 +11,7 @@ cp ~/.config/zathura/zathurarc ./
 cp ~/.offlineimaprc ./offlineimaprc
 cp ~/.offlineimap.py ./offlineimap.py
 cp ~/.authinfo.gpg ./authinfo.gpg
+cp ~/.Xmodmap ./Xmodmap
 
 cp /etc/pacman.conf ./
 cp /etc/systemd/system/netctl@SunyDays.service ./

@@ -13,6 +13,7 @@ cp ./zathurarc ~/.config/zathura/
 cp ./offlineimaprc ~/.offlineimaprc
 cp ./offlineimap.py ~/.offlineimap.py
 cp ./authinfo.gpg ~/.authinfo.gpg
+cp ./Xmodmap ~/.Xmodmap
 
 sudo cp ./pacman.conf /etc/
 sudo cp ./configs_backup.* /etc/systemd/system/
