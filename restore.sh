@@ -13,6 +13,7 @@ cp ./offlineimaprc ~/.offlineimaprc
 cp ./offlineimap.py ~/.offlineimap.py
 cp ./authinfo.gpg ~/.authinfo.gpg
 cp ./Xmodmap ~/.Xmodmap
+cp ./xinitrc ~/.xinitrc
 
 sudo cp ./pacman.conf /etc/
 sudo cp ./configs_backup.* /etc/systemd/system/
