@@ -5,7 +5,6 @@ cp ~/.bashrc ./bashrc
 cp ~/.emacs ./emacs
 cp ~/.gitconfig ./gitconfig
 cp ~/.config/awesome/rc.lua ./awesome_conf.lua
-cp ~/.config/terminator/config ./terminator.config
 cp ~/.config/zathura/zathurarc ./
 
 cp ~/.offlineimaprc ./offlineimaprc
