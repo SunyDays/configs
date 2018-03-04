@@ -30,8 +30,6 @@ cloc
 cmake
 cmus
 coreutils
-cowfortune
-cowsay
 cryptsetup
 cscope
 device-mapper
@@ -54,7 +52,6 @@ gcc
 gcc-libs
 gdb
 gettext
-gimp
 git
 glibc
 gmime

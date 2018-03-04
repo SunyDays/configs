@@ -3,11 +3,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(ansi-color-names-vector
-   ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
- '(custom-enabled-themes (quote (manoj-dark)))
  '(custom-safe-themes
    (quote
     ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
@@ -23,8 +18,10 @@
  ;; If there is more than one, they won't work right.
  '(cursor ((t (:background "gray20"))))
  '(region ((t (:background "gray20"))))
- '(whitespace-line ((t (:background "gray20" :foreground "red")))))
+ '(whitespace-line ((t (:background "black" :foreground "red")))))
 
+;; set color scheme
+(load-theme 'wheatgrass)
 ;; set font size
 (set-face-attribute 'default nil :height 100)
 ;; disable italic
@@ -53,6 +50,12 @@
 (global-set-key (kbd "<M-left>") 'shrink-window-horizontally)
 (global-set-key (kbd "<M-right>") 'enlarge-window-horizontally)
 
+;; remap split window shortcuts
+(global-set-key (kbd "C-x !") 'delete-other-windows)
+(global-set-key (kbd "C-x @") 'split-window-below)
+(global-set-key (kbd "C-x #") 'split-window-right)
+(global-set-key (kbd "C-x )") 'delete-window)
+
 (require 'highlight-current-line)
 (set-face-background 'highlight-current-line-face "gray10")
 
@@ -78,12 +81,15 @@
 (scroll-bar-mode -1)
 
 (require 'highlight-symbol)
-(global-set-key (kbd "<C-S-h>") 'highlight-symbol)
-(global-set-key (kbd "<C-S-n>") 'highlight-symbol-next)
-(global-set-key (kbd "<C-S-p>") 'highlight-symbol-prev)
+(global-set-key (kbd "C-S-h") 'highlight-symbol)
+(global-set-key (kbd "C-S-n") 'highlight-symbol-next)
+(global-set-key (kbd "C-S-p") 'highlight-symbol-prev)
 
-;; infinite ansi-term buffer size
-(setq term-buffer-maximum-size 0)
+;; ansi-term infinit buffer
+(add-hook 'term-mode-hook
+	  (lambda ()
+	    (setq term-buffer-maximum-size 0)
+	    ))
 
 (require 'whitespace)
 (setq whitespace-style '(face empty trailing lines-tail

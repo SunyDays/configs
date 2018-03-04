@@ -36,20 +36,29 @@ do
 end
 -- }}}
 
-awful.util.spawn_with_shell("terminator -e htop")
-awful.util.spawn_with_shell("terminator -e alsamixer")
-awful.util.spawn_with_shell("terminator -e 'dmesg -w'")
-awful.util.spawn_with_shell("terminator")
-awful.util.spawn_with_shell("emacs")
-awful.util.spawn_with_shell("chromium")
-awful.util.spawn_with_shell("zathura")
+-- autorun
+autorun = true
+autorunApps =
+{
+   "keyboard_toggle",
+   "hide_mouse",
+   "chromium",
+   "emacs",
+   "zathura",
+}
+if autorun then
+   for app = 1, #autorunApps do
+       awful.util.spawn(autorunApps[app])
+   end
+end
+
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "terminator"
+-- terminal = "st"
 editor = "emacs"
 
 -- Default modkey.
@@ -88,7 +97,7 @@ end
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-     names = { "browser", "term", "emacs", "reader", "media", 6, 7, 8, "messengers" }
+     names = { "1:browser", "2:emacs", "3:reader", "4:media", 5, 6, 7, 8, "messengers" }
 }
 for s = 1, screen.count() do
     tags[s] = awful.tag(tags.names, s, layouts[10])
@@ -389,23 +398,22 @@ awful.rules.rules = {
       { rule = { class = "Chromium" },
 	properties = { tag = tags[1][1] } },
 
-      { rule = { class = "Terminator" },
-	properties = { tag = tags[1][2], switchtotag = true } },
-
       { rule = { class = "Emacs" },
-	properties = { tag = tags[1][3] } },
+	properties = { tag = tags[1][2] }, switchtotag = true},
+
+      -- { rule = { class = "st-256color" },
+      -- 	properties = { tag = tags[1][3]} },
 
       { rule = { class = "Zathura" },
-	properties = { tag = tags[1][4] } },
+	properties = { tag = tags[1][3] } },
 
       { rule = { class = "Vlc" },
-	properties = { tag = tags[1][5] } },
-      { rule = { name = "Popcorn Time CE" },
-	properties = { tag = tags[1][5] } },
+	properties = { tag = tags[1][4] } },
+      -- for popcorntime
+      { rule = { class = "Chromium-browser" },
+	properties = { tag = tags[1][4] } },
       { rule = { class = "Gpicview" },
-	properties = { tag = tags[1][5] } },
-      { rule = { class = "Gimp" },
-	properties = { tag = tags[1][5] } },
+	properties = { tag = tags[1][4] } },
 
       { rule = { class = "TelegramDesktop" },
 	properties = { tag = tags[1][9] } },

@@ -14,7 +14,6 @@ alias grni='grep --color=auto -rnI'
 alias grnii='grep --color=auto -rnIi'
 # unalias emacs
 
-alias uncl='unclutter -idle 1 -jitter 10 -root &'
 alias telegram-cli='telegram-cli -k /etc/telegram-cli/server.pub -N'
 export EDITOR='emacs'
 

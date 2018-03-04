@@ -1,0 +1,3 @@
+#! /bin/bash
+
+unclutter -idle 1 -jitter 10 -root &

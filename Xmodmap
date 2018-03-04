@@ -1,4 +1,57 @@
-!!! main layout
+! LAYOUTS
+!
+! Standart:
+! |-------------+---+---+---+---+---|   |---+---+---+---+---+---+---+---|
+! |             |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+! |-------------+---+---+---+---+---|   |---+---+---+---+---+---+---+---|
+! | Tab         | q | w | e | r | t |   | y | u | i | o | p | { | } | \ |
+! |-------------+---+---+---+---+---|   |---+---+---+---+---+---+---+---|
+! | Control_L   | a | s | d | f | g |   | h | j | k | l | ; | ' | Enter |
+! |-------------+---+---+---+---+---|   |---+---+---+---+---+---+-------|
+! | Shift_L     | z | x | c | v | b |   | n | m | , | . | / |  Shift_R  |
+! |-------------+---+---+---+---+---+---+---+---+---+---+---+-----------|
+! | Mode_switch |  Super_L  |     Space     | Alr_R | Menu  | Control_R |
+! |-------------+-----------+---------------+-------+-------+-----------+
+!
+! Shift:
+! |-------------+---+---+---+---+---|   |---+---+---+---+---+---+---+---|
+! |             |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+! |-------------+---+---+---+---+---|   |---+---+---+---+---+---+---+---|
+! |             | Q | W | E | R | T |   | Y | U | I | O | P | [ | ] | | |
+! |-------------+---+---+---+---+---|   |---+---+---+---+---+---+---+---|
+! |             | A | S | D | F | G |   | H | J | K | L | : | " |       |
+! |-------------+---+---+---+---+---|   |---+---+---+---+---+---+-------|
+! |             | Z | X | C | V | B |   | N | M | < | > | ? |           |
+! |-------------+---+---+---+---+---+---+---+---+---+---+---+-----------|
+! |             |           |               |       |       |           |
+! |-------------+-----------+---------------+-------+-------+-----------+
+!
+! Mode_switch:
+! |-------------+------+----+-----+--------+------|   |-----------+----+----+----+-----+-----+-----+---|
+! |  Escape     | F1   | F2 | F3  | F4     | F5   |   | F6        | F7 | F8 | F9 | F10 | F11 | F12 |   |
+! |-------------+------+----+-----+--------+------|   |-----------+----+----+----+-----+-----+-----+---|
+! |             |      |    | End |        |      |   | ~         | &  | *  | (  | Up  |     |     |   |
+! |-------------+------+----+-----+--------+------|   |-----------+----+----+----+-----+-----+-----+---|
+! |             | Home |    | Del | Right  |      |   | Backspace | $  | %  | ^  | -   | =   |         |
+! |-------------+------+----+-----+--------+------|   |-----------+----+----+----+-----+-----+---------|
+! |             |      |    |     | Insert | Left |   | Down      | !  | @  | #  | )   |               |
+! |-------------+------+----+-----+--------+------+---+-----------+----+----+----+-----+---------------|
+! |             |                |                                |         |                          |
+! |-------------+----------------+--------------------------------+---------+--------------------------+
+!
+! Mode_switch + Shift:
+! |-------------+---+---+---+-------+------|   |-------+---+---+---+----+---+---+---|
+! |             |   |   |   |       |      |   |       |   |   |   |    |   |   |   |
+! |-------------+---+---+---+-------+------|   |-------+---+---+---+----+---+---+---|
+! |             |   |   |   |       |      |   | `     | 7 | 8 | 9 |    |   |   |   |
+! |-------------+---+---+---+-------+------|   |-------+---+---+---+----+---+---+---|
+! |             |   |   |   |       |      |   |       | 4 | 5 | 6 | _  | + |       |
+! |-------------+---+---+---+-------+------|   |-------+---+---+---+----+---+-------|
+! |             |   |   |   |       |      |   |       | 1 | 2 | 3 | 0  |           |
+! |-------------+---+---+---+-------+------+---+-------+---+---+---+----+-----------|
+! |             |           |                          |       |                    |
+! |-------------+-----------+--------------------------+-------+--------------------+
+
 
 ! turn caps_lock to control_l
 clear lock
@@ -9,8 +62,6 @@ add control = Caps_Lock Control_L Control_R
 ! make control_l mode_switch
 keycode 37 = Mode_switch Mode_switch Mode_switch
 
-!!! second layout
-
 ! map arrows to pnfb keys
 keysym p = p P Up
 keysym n = n N Down
@@ -18,8 +69,11 @@ keysym f = f F Right
 keysym b = b B Left
 
 ! map home and end
-keysym e = e E KP_Home
-keysym a = a A KP_End
+keysym e = e E End
+keysym a = a A Home
+
+! map insert to v
+keysym v = v V Insert
 
 !! map symbols for right hand
 ! bottom row
@@ -38,23 +92,52 @@ keysym u = u U ampersand 7
 keysym i = i I asterisk 8
 keysym o = o O parenleft 9
 
-! map tilde to q key
-keysym q = q Q asciitilde grave
+! map tilde to y key
+keysym y = y Y asciitilde grave
+
+! map backspace to h key
+keysym h = h H BackSpace
+
+! map del to d key
+keysym d = d D Delete
 
 ! swap braces
 keycode 34 = braceleft bracketleft
 keycode 35 = braceright bracketright
 
+! map esc to tilde
+keycode 49 = NoSymbol NoSymbol Escape
+
+! disable escape
+keycode 9 = NoSymbol NoSymbol
+
 ! map f keys to numbers row
-keycode 10 = 1 exclam F1
-keycode 11 = 2 at F2
-keycode 12 = 3 numbersign F3
-keycode 13 = 4 dollar F4
-keycode 14 = 5 percent F5
-keycode 15 = 6 asciicircum F6
-keycode 16 = 7 ampersand F7
-keycode 17 = 8 asterisk F8
-keycode 18 = 9 parenleft F9
-keycode 19 = 0 parenright F10
-keycode 20 = minus underscore F11
-keycode 21 = equal plus F12
+keycode 10 = NoSymbol NoSymbol F1
+keycode 11 = NoSymbol NoSymbol F2
+keycode 12 = NoSymbol NoSymbol F3
+keycode 13 = NoSymbol NoSymbol F4
+keycode 14 = NoSymbol NoSymbol F5
+keycode 15 = NoSymbol NoSymbol F6
+keycode 16 = NoSymbol NoSymbol F7
+keycode 17 = NoSymbol NoSymbol F8
+keycode 18 = NoSymbol NoSymbol F9
+keycode 19 = NoSymbol NoSymbol F10
+keycode 20 = NoSymbol NoSymbol F11
+keycode 21 = NoSymbol NoSymbol F12
+
+! disable backspace
+keycode 22 = NoSymbol NoSymbol
+
+! disable f keys
+keycode  67 = NoSymbol NoSymbol
+keycode  68 = NoSymbol NoSymbol
+keycode  69 = NoSymbol NoSymbol
+keycode  70 = NoSymbol NoSymbol
+keycode  71 = NoSymbol NoSymbol
+keycode  72 = NoSymbol NoSymbol
+keycode  73 = NoSymbol NoSymbol
+keycode  74 = NoSymbol NoSymbol
+keycode  75 = NoSymbol NoSymbol
+keycode  76 = NoSymbol NoSymbol
+keycode  95 = NoSymbol NoSymbol
+keycode  96 = NoSymbol NoSymbol
