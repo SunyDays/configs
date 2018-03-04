@@ -20,6 +20,15 @@ cp -rf /etc/mkinitcpio.d ./
 
 cp /etc/X11/xorg.conf.d/20-intel.conf ./
 
+cp /usr/local/bin/chromium_gpu ./
+cp /usr/local/bin/hide_mouse ./
+cp /usr/local/bin/lget ./
+cp /usr/local/bin/lset ./
+cp /usr/local/bin/wttr_msk ./
+cp /usr/local/bin/hdmi_sound_toggle ./
+cp /usr/local/bin/keyboard_toggle ./
+cp /usr/local/bin/popcorntime_gpu ./
+
 # cp /etc/netctl/SunyDays ./
 # gpg -se SunyDays
 # rm SunyDays

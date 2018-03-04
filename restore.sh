@@ -18,18 +18,27 @@ sudo cp ./pacman.conf /etc/
 sudo cp ./configs_backup.* /etc/systemd/system/
 sudo cp ./netctl@SunyDays.service /etc/systemd/system/
 
-cp ./mkinitcpio.conf /etc
-cp -rf ./mkinitcpio.d /etc
+sudo cp ./mkinitcpio.conf /etc
+sudo cp -rf ./mkinitcpio.d /etc
 
-cp ./20-intel.conf /etc/X11/xorg.conf.d/
+sudo cp ./20-intel.conf /etc/X11/xorg.conf.d/
+
+sudo cp ./chromium_gpu /usr/local/bin/
+sudo cp ./hide_mouse /usr/local/bin/
+sudo cp ./lget /usr/local/bin/
+sudo cp ./lset /usr/local/bin/
+sudo cp ./wttr_msk /usr/local/bin/
+sudo cp ./hdmi_sound_toggle /usr/local/bin/
+sudo cp ./keyboard_toggle /usr/local/bin/
+sudo cp ./popcorntime_gpu /usr/local/bin/
 
 echo '> RESTORE PACKAGES'
 sudo pacman -S $(cat packages.list)
 
 echo '> RESOTRE PACMAN DATABASE'
-cp pacman_database.tar.bz2 /
+sudo cp pacman_database.tar.bz2 /
 cd /
-tar -xjvf pacman_database.tar.bz2
+sudo tar -xjvf pacman_database.tar.bz2
 cd -
 
 echo "[DONE]"
