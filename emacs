@@ -7,9 +7,12 @@
    (quote
     ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
  '(initial-buffer-choice (quote mu4e))
+ '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (smart-mode-line nlinum markdown-mode highlight-indent-guides magit nasm-mode lua-mode org highlight-symbol highlight-current-line xcscope)))
+    (exwm smart-mode-line nlinum markdown-mode highlight-indent-guides magit nasm-mode lua-mode org highlight-symbol highlight-current-line xcscope)))
+ '(scroll-bar-mode nil)
+ '(show-paren-mode 1)
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -19,6 +22,8 @@
  '(cursor ((t (:background "gray20"))))
  '(region ((t (:background "gray20"))))
  '(whitespace-line ((t (:background "black" :foreground "red")))))
+
+(add-hook 'window-setup-hook 'toggle-frame-fullscreen t)
 
 ;; set color scheme
 (load-theme 'wheatgrass)
@@ -76,10 +81,6 @@
 			(setq comment-start "@ ")
 			(setq comment-add 0))))
 
-(menu-bar-mode -1)
-(show-paren-mode 1)
-(scroll-bar-mode -1)
-
 (require 'highlight-symbol)
 (global-set-key (kbd "C-S-h") 'highlight-symbol)
 (global-set-key (kbd "C-S-n") 'highlight-symbol-next)
@@ -117,8 +118,6 @@
 
 (set-fringe-mode '(nil . 0))
 (set-face-background 'fringe "black" nil)
-
-(add-hook 'window-setup-hook 'toggle-frame-fullscreen t)
 
 (setq sml/theme 'dark)
 (sml/setup)
@@ -226,3 +225,8 @@
         (forward-line (1- line-no))
         (when (> col-no 0)
           (forward-char (1- col-no)))))))
+
+;; EXWM
+;; (require 'exwm)
+;; (require 'exwm-config)
+;; (exwm-config-default)
