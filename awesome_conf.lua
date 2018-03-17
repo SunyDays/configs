@@ -97,7 +97,7 @@ end
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-     names = { "1:browser", "2:emacs", "3:reader", "4:media", 5, 6, 7, 8, "messengers" }
+     names = { "1:browser", "2:emacs", "3:reader", "4:media", 5, 6, 7, 8, "9:messengers" }
 }
 for s = 1, screen.count() do
     tags[s] = awful.tag(tags.names, s, layouts[10])
@@ -400,9 +400,6 @@ awful.rules.rules = {
 
       { rule = { class = "Emacs" },
 	properties = { tag = tags[1][2] }, switchtotag = true},
-
-      -- { rule = { class = "st-256color" },
-      -- 	properties = { tag = tags[1][3]} },
 
       { rule = { class = "Zathura" },
 	properties = { tag = tags[1][3] } },

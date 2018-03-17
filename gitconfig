@@ -18,3 +18,5 @@
 	abbrev = 12
 [gc]
 	auto = 0
+[github]
+	user = SunyDays
