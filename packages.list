@@ -114,6 +114,7 @@ pdfgrep
 perl
 pkg-config
 pnmixer
+poppler-glib
 procps-ng
 psmisc
 pulseaudio
@@ -197,7 +198,6 @@ xorg-xinit
 xorg-xinput
 xorg-xrandr
 xulrunner
-yaourt
 zathura
 zathura-djvu
 zathura-pdf-mupdf
